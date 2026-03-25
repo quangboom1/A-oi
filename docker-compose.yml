@@ -1,0 +1,9 @@
+services:
+  flutter_ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ui_app_container
+    ports:
+      - "8080:80"
+    # restart: always
