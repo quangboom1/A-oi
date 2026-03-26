@@ -6,6 +6,8 @@ import '../theme/app_theme.dart';
 import '../widgets/dock_nav_bar.dart';
 import '../utils/responsive.dart';
 import 'care_screen.dart';
+import 'community_screen.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -60,8 +62,9 @@ class _HomeScreenState extends State<HomeScreen> {
       _buildMainHomeContent(), // Index 0: Trang chủ
       _buildPlaceholderScreen('Gói chăm sóc'), // Restore slot but as placeholder
       _buildPlaceholderScreen('Bé yêu'),
-      _buildPlaceholderScreen('Cộng đồng'),
+      const CommunityScreen(),
       _buildPlaceholderScreen('Kiến thức'),
+
     ];
 
     final double navWidth = Responsive.value(
@@ -227,11 +230,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Center(
                   child: Container(
                     constraints: const BoxConstraints(maxWidth: 900),
-                    child: _buildScheduleCard(systemGreen, darkText, greyText),
+                    child: Column(
+                      children: [
+                        _buildScheduleCard(systemGreen, darkText, greyText),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
+
+
 
             const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
@@ -513,7 +522,8 @@ class _HomeScreenState extends State<HomeScreen> {
     
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(32),
+        borderRadius: BorderRadius.circular(60),
+
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.06),
@@ -523,7 +533,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(32),
+        borderRadius: BorderRadius.circular(60),
+
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
           child: Container(
@@ -536,8 +547,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   creamAccent.withOpacity(0.7),
                 ],
               ),
-              borderRadius: BorderRadius.circular(32),
+              borderRadius: BorderRadius.circular(60),
+
               border: Border.all(
+
                 color: Colors.white,
                 width: 2,
               ),
@@ -641,7 +654,7 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(60),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.12),
@@ -651,7 +664,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(60),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
             child: Container(
@@ -666,7 +679,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Colors.white.withOpacity(0.15),
                   ],
                 ),
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(60),
                 border: Border.all(
                   color: Colors.white.withOpacity(0.5),
                   width: 1.5,
@@ -889,7 +902,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(32),
+        borderRadius: BorderRadius.circular(60),
+
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
@@ -899,7 +913,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(32),
+        borderRadius: BorderRadius.circular(60),
+
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
           child: Container(
@@ -913,8 +928,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   Colors.white.withOpacity(0.4),
                 ],
               ),
-              borderRadius: BorderRadius.circular(32),
+              borderRadius: BorderRadius.circular(60),
+
               border: Border.all(
+
                 color: Colors.white.withOpacity(0.8),
                 width: 1.5,
               ),
@@ -1077,8 +1094,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     }).toList(),
                   ),
+                const SizedBox(height: 20),
+                _buildInternalBookingBtn(accent),
               ],
             ),
+
           ),
         ),
       ),
@@ -1344,4 +1364,129 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  Widget _buildInternalBookingBtn(Color accent) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        decoration: BoxDecoration(
+          color: accent,
+          borderRadius: BorderRadius.circular(60),
+          boxShadow: [
+            BoxShadow(
+              color: accent.withOpacity(0.3),
+              blurRadius: 15,
+              offset: const Offset(0, 8),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.calendar_month_rounded, color: Colors.white, size: 20),
+            const SizedBox(width: 10),
+            Text(
+              'Đặt lịch chăm sóc',
+              style: GoogleFonts.inter(
+                fontSize: 14,
+                fontWeight: FontWeight.w800,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBookingCTA() {
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(60),
+
+        boxShadow: [
+          BoxShadow(
+            color: AppTheme.primary.withOpacity(0.15),
+            blurRadius: 30,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(60),
+
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  AppTheme.primary,
+                  AppTheme.primary.withOpacity(0.8),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(60),
+
+              border: Border.all(color: Colors.white.withOpacity(0.3)),
+            ),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.calendar_month_rounded, color: Colors.white, size: 24),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Bạn cần tư vấn thêm?',
+                        style: GoogleFonts.inter(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'Hẹn lịch ngay hôm nay',
+                        style: GoogleFonts.inter(
+                          fontSize: 12,
+                          color: Colors.white.withOpacity(0.8),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(60),
+                  ),
+                  child: Text(
+                    'Hẹn lịch',
+                    style: GoogleFonts.inter(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w800,
+                      color: AppTheme.primary,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
+
