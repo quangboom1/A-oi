@@ -65,6 +65,8 @@ class CareScreen extends StatelessWidget {
             // Package List
             SliverPadding(
               padding: EdgeInsets.fromLTRB(horizontalPadding, 16, horizontalPadding, 120),
+
+
               sliver: SliverList(
                 delegate: SliverChildListDelegate([
                   // 30 Days (VIP)
@@ -138,6 +140,7 @@ class CareScreen extends StatelessWidget {
               ),
             ),
             ],
+
           ),
         ),
       ),
@@ -159,7 +162,8 @@ class CareScreen extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(32),
+        borderRadius: BorderRadius.circular(60),
+
         boxShadow: [
           BoxShadow(
             color: isFeatured ? accentColor.withOpacity(0.12) : Colors.black.withOpacity(0.06),
@@ -169,7 +173,8 @@ class CareScreen extends StatelessWidget {
         ],
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(32),
+        borderRadius: BorderRadius.circular(60),
+
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
           child: Container(
@@ -182,7 +187,8 @@ class CareScreen extends StatelessWidget {
                   Colors.white.withOpacity(0.15),
                 ],
               ),
-              borderRadius: BorderRadius.circular(32),
+              borderRadius: BorderRadius.circular(60),
+
               border: Border.all(
                 color: Colors.white.withOpacity(0.5),
                 width: 1.5,
@@ -417,3 +423,5 @@ class CareScreen extends StatelessWidget {
     );
   }
 }
+
+

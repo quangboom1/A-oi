@@ -5,7 +5,8 @@ class AppTheme {
   // Palette: Organic Cocoon
   static const Color primary = Color(0xFF7AAE8E);
   static const Color primaryContainer = Color(0xFF5F8F71);
-  static const Color background = Color(0xFFFBF9F5);
+  static const Color background = Color(0xFFF4E7C6);
+
   static const Color onSurface = Color(0xFF1B1C1A);
   static const Color onSurfaceVariant = Color(0xFF42493D);
   static const Color outline = Color(0xFFC2C9BA);

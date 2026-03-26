@@ -276,7 +276,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(60),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -286,7 +286,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(60),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
           child: Container(
@@ -401,7 +401,7 @@ class _LoginScreenState extends State<LoginScreen> {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(60),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
@@ -411,7 +411,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ],
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(60),
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16),
             child: Container(
@@ -426,7 +426,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Colors.white.withOpacity(0.12),
                   ],
                 ),
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(60),
                 border: Border.all(
                   color: Colors.white.withOpacity(0.4),
                   width: 1.5,
