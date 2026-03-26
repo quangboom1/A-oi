@@ -7,6 +7,7 @@ import '../widgets/dock_nav_bar.dart';
 import '../utils/responsive.dart';
 import 'care_screen.dart';
 import 'community_screen.dart';
+import 'mother_baby_screen.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final List<Widget> screens = [
       _buildMainHomeContent(), // Index 0: Trang chủ
       _buildPlaceholderScreen('Gói chăm sóc'), // Restore slot but as placeholder
-      _buildPlaceholderScreen('Bé yêu'),
+      const MotherBabyScreen(),
       const CommunityScreen(),
       _buildPlaceholderScreen('Kiến thức'),
 

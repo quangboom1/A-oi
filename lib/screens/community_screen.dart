@@ -4,8 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../theme/app_theme.dart';
 import '../utils/responsive.dart';
 import '../widgets/shader_background.dart';
-import 'profile_screen.dart';
-import 'post_detail_screen.dart';
 import 'create_post_screen.dart';
 import '../widgets/feed_item.dart';
 
