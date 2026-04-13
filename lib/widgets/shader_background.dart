@@ -54,7 +54,7 @@ class _ShaderBackgroundState extends State<ShaderBackground> with SingleTickerPr
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFF7FBF9), Color(0xFFF0F5F2)],
+            colors: [Color(0xFFF5F9EC), Color(0xFFE8F1D6)],
           ),
         ),
         child: widget.child,
@@ -107,31 +107,30 @@ class ShaderPainter extends CustomPainter {
       shader.setFloat(16, 0.05);
       shader.setFloat(17, 0.08);
     } else {
-      // Original Organic Cocoon colors
-      // Color 1: 0.631, 0.784, 0.651
-      shader.setFloat(3, 0.631);
-      shader.setFloat(4, 0.784);
-      shader.setFloat(5, 0.651);
+      // Color 1: c50 (0.961, 0.976, 0.925)
+      shader.setFloat(3, 0.961);
+      shader.setFloat(4, 0.976);
+      shader.setFloat(5, 0.925);
 
-      // Color 2: 0.957, 0.906, 0.839
-      shader.setFloat(6, 0.957);
-      shader.setFloat(7, 0.906);
+      // Color 2: c100 (0.910, 0.945, 0.839)
+      shader.setFloat(6, 0.910);
+      shader.setFloat(7, 0.945);
       shader.setFloat(8, 0.839);
 
-      // Color 3: 0.812, 0.890, 0.820
-      shader.setFloat(9, 0.812);
-      shader.setFloat(10, 0.890);
-      shader.setFloat(11, 0.820);
+      // Color 3: c200 (0.824, 0.894, 0.698)
+      shader.setFloat(9, 0.824);
+      shader.setFloat(10, 0.894);
+      shader.setFloat(11, 0.698);
 
-      // Color 4: 0.949, 0.953, 0.804
-      shader.setFloat(12, 0.949);
-      shader.setFloat(13, 0.953);
-      shader.setFloat(14, 0.804);
+      // Color 4: c300 (0.675, 0.804, 0.459)
+      shader.setFloat(12, 0.675);
+      shader.setFloat(13, 0.804);
+      shader.setFloat(14, 0.459);
 
-      // Color 5: 0.906, 0.945, 0.910
-      shader.setFloat(15, 0.906);
-      shader.setFloat(16, 0.945);
-      shader.setFloat(17, 0.910);
+      // Color 5: White (1.0, 1.0, 1.0)
+      shader.setFloat(15, 1.0);
+      shader.setFloat(16, 1.0);
+      shader.setFloat(17, 1.0);
     }
 
     shader.setFloat(18, 0.07); // noise strength
@@ -145,3 +144,6 @@ class ShaderPainter extends CustomPainter {
     return oldDelegate.time != time;
   }
 }
+
+
+

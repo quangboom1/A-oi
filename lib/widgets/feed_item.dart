@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../theme/app_theme.dart';
-import '../screens/profile_screen.dart';
-import '../screens/post_detail_screen.dart';
+import '../screens/mother/profile_screen.dart';
+import '../screens/mother/post_detail_screen.dart';
 
 class FeedItem extends StatefulWidget {
   final String username;
@@ -100,7 +100,7 @@ class _FeedItemState extends State<FeedItem> with SingleTickerProviderStateMixin
                     },
                     child: CircleAvatar(
                       radius: 20,
-                      backgroundImage: NetworkImage('https://api.dicebear.com/7.x/avataaars/png?seed=${widget.username}'),
+                      backgroundImage: NetworkImage('https://api.dicebear.com/7.x/avataaars/png?seed=${Uri.encodeComponent(widget.username)}'),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -283,3 +283,6 @@ class _FeedItemState extends State<FeedItem> with SingleTickerProviderStateMixin
     return number.toString();
   }
 }
+
+
+
