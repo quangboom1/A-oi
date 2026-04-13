@@ -34,12 +34,13 @@ class DockNavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _NavBarItem(0, 'public/icon/home.svg', currentIndex, navLabels[0], onTap),
-          _NavBarItem(1, 'public/icon/care.svg', currentIndex, navLabels[1], onTap),
-          _NavBarItem(2, 'public/icon/baby.svg', currentIndex, navLabels[2], onTap),
-          _NavBarItem(3, 'public/icon/community.svg', currentIndex, navLabels[3], onTap),
-          _NavBarItem(4, 'public/icon/knowledge.svg', currentIndex, navLabels[4], onTap),
+          _NavBarItem(0, 'assets/icons/home.svg', currentIndex, navLabels[0], onTap),
+          _NavBarItem(1, 'assets/icons/care.svg', currentIndex, navLabels[1], onTap),
+          _NavBarItem(2, 'assets/icons/baby.svg', currentIndex, navLabels[2], onTap),
+          _NavBarItem(3, 'assets/icons/community.svg', currentIndex, navLabels[3], onTap),
+          _NavBarItem(4, 'assets/icons/knowledge.svg', currentIndex, navLabels[4], onTap),
         ],
+
       ),
     );
   }
@@ -96,3 +97,7 @@ class _NavBarItem extends StatelessWidget {
     );
   }
 }
+
+
+
+

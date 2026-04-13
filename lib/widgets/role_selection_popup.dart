@@ -94,86 +94,102 @@ class _RoleSelectionDialogState extends State<_RoleSelectionDialog> {
                       ),
                       const SizedBox(height: 28),
 
-                      // Role Cards
-                      Row(
+                      // Role Selection (Vertical list of horizontal bars)
+                      Column(
                         children: [
-                          Expanded(
-                            child: _RoleCard(
-                              emoji: '🤱',
-                              title: 'Mẹ',
-                              subtitle: 'Theo dõi sức khỏe\nvà hành trình của mẹ',
-                              isSelected: _selected == UserRole.mother,
-                              onTap: () => setState(() => _selected = UserRole.mother),
-                            ),
+                          _RoleCard(
+                            emoji: '🤱',
+                            title: 'Mẹ',
+                            subtitle: 'Theo dõi sức khỏe và hành trình của mẹ',
+                            isSelected: _selected == UserRole.mother,
+                            onTap: () => setState(() => _selected = UserRole.mother),
                           ),
-                          const SizedBox(width: 14),
-                          Expanded(
-                            child: _RoleCard(
-                              emoji: '🩺',
-                              title: 'Người\nchăm sóc',
-                              subtitle: 'Hỗ trợ và chăm sóc\nmẹ và bé',
-                              isSelected: _selected == UserRole.caregiver,
-                              onTap: () => setState(() => _selected = UserRole.caregiver),
-                            ),
+                          const SizedBox(height: 12),
+                          _RoleCard(
+                            emoji: '🩺',
+                            title: 'Người chăm sóc',
+                            subtitle: 'Hỗ trợ và chăm sóc mẹ và bé',
+                            isSelected: _selected == UserRole.caregiver,
+                            onTap: () => setState(() => _selected = UserRole.caregiver),
                           ),
                         ],
                       ),
 
                       const SizedBox(height: 28),
 
-                      // Confirm Button
-                      GestureDetector(
-                        onTap: _selected == null
-                            ? null
-                            : () => Navigator.of(context).pop(_selected),
-                        child: AnimatedOpacity(
-                          duration: const Duration(milliseconds: 200),
-                          opacity: _selected == null ? 0.45 : 1.0,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(60),
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                      // Action Buttons
+                      Row(
+                        children: [
+                          // Cancel
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () => Navigator.of(context).pop(null),
                               child: Container(
-                                width: double.infinity,
                                 padding: const EdgeInsets.symmetric(vertical: 16),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.25),
+                                  color: Colors.white.withOpacity(0.08),
                                   borderRadius: BorderRadius.circular(60),
                                   border: Border.all(
-                                    color: Colors.white.withOpacity(0.4),
+                                    color: Colors.white.withOpacity(0.2),
                                     width: 1,
                                   ),
                                 ),
                                 child: Center(
                                   child: Text(
-                                    'Tiếp tục',
+                                    'Huỷ',
                                     style: GoogleFonts.inter(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white.withOpacity(0.6),
                                       fontSize: 16,
-                                      letterSpacing: 0.2,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-
-                      const SizedBox(height: 14),
-
-                      // Cancel
-                      GestureDetector(
-                        onTap: () => Navigator.of(context).pop(null),
-                        child: Text(
-                          'Huỷ',
-                          style: GoogleFonts.inter(
-                            color: Colors.white.withOpacity(0.5),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
+                          const SizedBox(width: 12),
+                          // Confirm Button
+                          Expanded(
+                            flex: 2,
+                            child: GestureDetector(
+                              onTap: _selected == null
+                                  ? null
+                                  : () => Navigator.of(context).pop(_selected),
+                              child: AnimatedOpacity(
+                                duration: const Duration(milliseconds: 200),
+                                opacity: _selected == null ? 0.45 : 1.0,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(60),
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(vertical: 16),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.25),
+                                        borderRadius: BorderRadius.circular(60),
+                                        border: Border.all(
+                                          color: Colors.white.withOpacity(0.4),
+                                          width: 1,
+                                        ),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Tiếp tục',
+                                          style: GoogleFonts.inter(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 16,
+                                            letterSpacing: 0.2,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
                     ],
                   ),
@@ -227,53 +243,59 @@ class _RoleCard extends StatelessWidget {
                   width: isSelected ? 1.5 : 1,
                 ),
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+              child: Row(
                 children: [
                   // Emoji in bubble
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(60),
+                    borderRadius: BorderRadius.circular(50),
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
                       child: Container(
-                        width: 60,
-                        height: 60,
+                        width: 44,
+                        height: 44,
                         decoration: BoxDecoration(
                           color: Colors.white.withOpacity(isSelected ? 0.28 : 0.12),
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: Colors.white.withOpacity(0.3),
+                            color: Colors.white.withOpacity(0.35),
                             width: 1,
                           ),
                         ),
                         child: Center(
-                          child: Text(emoji, style: const TextStyle(fontSize: 28)),
+                          child: Text(emoji, style: const TextStyle(fontSize: 20)),
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 14),
-                  Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.inter(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                      height: 1.3,
+                  const SizedBox(width: 12),
+                  // Title and Subtitle
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          title,
+                          style: GoogleFonts.inter(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
+                            letterSpacing: -0.1,
+                          ),
+                        ),
+                        if (subtitle.isNotEmpty)
+                          Text(
+                            subtitle,
+                            style: GoogleFonts.inter(
+                              fontSize: 12,
+                              color: Colors.white.withOpacity(0.55),
+                              height: 1.4,
+                            ),
+                          ),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 6),
-                  Text(
-                    subtitle,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.inter(
-                      fontSize: 12,
-                      color: Colors.white.withOpacity(0.6),
-                      height: 1.45,
-                    ),
-                  ),
-                  const SizedBox(height: 14),
+                  const SizedBox(width: 8),
                   // Selection indicator
                   AnimatedContainer(
                     duration: const Duration(milliseconds: 200),
@@ -302,3 +324,7 @@ class _RoleCard extends StatelessWidget {
     );
   }
 }
+
+
+
+
