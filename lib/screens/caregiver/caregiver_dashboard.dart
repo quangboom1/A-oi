@@ -276,7 +276,7 @@ class _CaregiverDashboardState extends State<CaregiverDashboard> {
       childAspectRatio: 2.2,
       children: [
         _buildStatCard(label: 'Ca hôm nay', value: '3 ca', icon: Icons.work_outline_rounded, color: const Color(0xFFE8F5E9), iconColor: const Color(0xFF388E3C)),
-        _buildStatCard(label: 'Khách đang chăm', value: '5 mẹ', icon: Icons.people_outline_rounded, color: const Color(0xFFFFF3E0), iconColor: const Color(0xFFF57C00)),
+        _buildStatCard(label: 'Khách đã chăm', value: '5 mẹ', icon: Icons.people_outline_rounded, color: const Color(0xFFFFF3E0), iconColor: const Color(0xFFF57C00)),
         _buildStatCard(label: 'Tháng này', value: '18.5h', icon: Icons.timer_outlined, color: const Color(0xFFE3F2FD), iconColor: const Color(0xFF1976D2)),
         _buildStatCard(label: 'Đánh giá', value: '4.9/5', icon: Icons.star_outline_rounded, color: const Color(0xFFFCE4EC), iconColor: const Color(0xFFC2185B)),
       ],
